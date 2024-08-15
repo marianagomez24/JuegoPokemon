@@ -1,0 +1,63 @@
+﻿@model JuegoPokemon.Models.Pokemon
+
+@{
+    ViewData["Title"] = "Eliminar Pokémon";
+}
+
+<h2>Eliminar Pokémon</h2>
+
+<h3>¿Estás seguro que quieres eliminar este Pokémon?</h3>
+<div>
+    <h4>Pokémon</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Debilidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Debilidad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evoluciones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evoluciones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_Entrenador)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id_Entrenador)
+        </dd>
+    </dl>
+
+    <form asp-action="Eliminar">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Volver a la lista</a>
+    </form>
+</div>

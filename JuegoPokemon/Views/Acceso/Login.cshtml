@@ -1,0 +1,99 @@
+﻿@model JuegoPokemon.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background: url('/img/fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-header {
+            background-color: #732C39;
+            color: white;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #732C39;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #732C39;
+            }
+
+        .form-control {
+            border-radius: 0.5rem;
+        }
+
+        .alert {
+            margin-top: 1rem;
+        }
+
+        a {
+            color: #732C39;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header text-center">
+            <h3>Iniciar Sesión</h3>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Acceso" asp-action="Login" method="post">
+                <div class="mb-3">
+                    <input class="form-control" type="text" placeholder="usuario" required asp-for="usuario" />
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="password" placeholder="contraseña" required asp-for="contrasena" />
+                </div>
+
+                <div class="d-grid gap-2 mb-3">
+                    <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["Mensaje"]
+                        </div>
+                    }
+                </div>
+
+                <div class="text-center">
+                    ¿No tienes cuenta? <a asp-controller="Acceso" asp-action="Registro">Regístrate YA!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
